@@ -10,7 +10,7 @@ struct Depositor {
 
 contract NftSwap {
     
-    address collectionAddress;  
+    address public collectionAddress;  
     constructor(address _collectionAddress) {
         collectionAddress = _collectionAddress;
         
