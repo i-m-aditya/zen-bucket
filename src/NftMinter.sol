@@ -23,6 +23,4 @@ contract NftMinter is ERC721 {
     function burn(uint256 id) public {
         _burn(id);
     }
-
-
 }
