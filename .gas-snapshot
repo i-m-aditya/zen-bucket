@@ -1,0 +1,3 @@
+NftMinterTest:testExample() (gas: 257)
+NftMinterTest:testMint() (gas: 180863)
+NftMinterTest:testNftSwapCollectionAddress() (gas: 9839)

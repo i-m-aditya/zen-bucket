@@ -38,4 +38,45 @@ contract NftMinterTest is Test {
     }
 
 
+    function testDepositRequest() public {
+        nftMinter.mint(bob, 0);
+
+        nftMinter.mint(alice, 1);
+        uint256[] memory bobAsk = new uint256[](1);
+        bobAsk[0] = 1;
+
+        vm.prank(bob);
+        nftMinter.approve(address(nftSwap), 0);
+
+        // emit log_address (bob);
+        // emit log_address(nftMinter.ownerOf(0));
+        // emit log_address(address(nftSwap));
+
+        vm.prank(bob);   
+        nftSwap.depositRequestForExchange(0, bobAsk);
+        address askAddress = nftSwap.asks(keccak256(abi.encodePacked(uint256(0),uint256(1))),0);
+        
+        assertEq( askAddress, bob); 
+        
+        assertEq( nftMinter.ownerOf(0), address(nftSwap));
+
+
+        uint256[] memory aliceAsk = new uint256[](1);
+        aliceAsk[0] = 0;
+
+        vm.prank(alice);
+        nftMinter.approve(address(nftSwap), 1);
+
+        vm.prank(alice);
+        nftSwap.depositRequestForExchange(1, aliceAsk);
+
+
+        assertEq( nftMinter.ownerOf(0), alice);
+        assertEq(nftMinter.ownerOf(1), bob);
+
+        
+        
+        // emit log_uint( nftSwap.askLength(keccak256(abi.encodePacked(uint256(0),uint256(1)))));
+    }
+
 }

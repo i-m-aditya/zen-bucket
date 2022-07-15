@@ -16,25 +16,25 @@ contract NftSwap {
         
     }
     
-    mapping (uint256=>address) nftDeposits;
 
     // Ask for NFTs
     // abi.encode(nft1, nft2) -> [address]
-    mapping (bytes32 => address[]) asks;
+    mapping (bytes32 => address[]) public asks;
 
-    // Ask for NFTs
-    mapping (uint256 => uint256[]) asksList;
+    uint256 public dd;
 
-
-
-    function swapMyNFTWhenThisAreAvailable(uint256 tokenA, uint256[] memory asksArray) public {
-        require(ERC721(collectionAddress).ownerOf(tokenA) == msg.sender, "Not owner");
+    function depositRequestForExchange(uint256 tokenA, uint256[] memory asksArray) public {
+        require(ERC721(collectionAddress).ownerOf(tokenA) == msg.sender, "Not owner ser");
         // Assuming wanted tokenIds are not already owned by the same user
-
+        ERC721(collectionAddress).transferFrom(msg.sender, address(this), tokenA);
         
         _orderMatchElsePopulate(tokenA, asksArray);
         
         
+    }
+
+    function askLength(bytes32 hash) public view returns (uint256) {
+        return asks[hash].length;
     }
 
     function _orderMatchElsePopulate(uint256 tokenA, uint256[] memory asksArray) private {
@@ -43,6 +43,8 @@ contract NftSwap {
             
             bytes32 encodedIds = keccak256(abi.encodePacked(tokenB, tokenA));
             if(asks[encodedIds].length > 0) {
+
+                dd = 1;
                 _exchangeNfts(asks[encodedIds][0], msg.sender, tokenA, tokenB);
                 address[] memory emptyArray;
                 asks[encodedIds] = emptyArray;
@@ -50,7 +52,7 @@ contract NftSwap {
             }
         }
         for(uint256 index=0; index<asksArray.length; index++) {
-            require(ERC721(collectionAddress).ownerOf(asksArray[index]) == address(0), "Zero address");
+            require(ERC721(collectionAddress).ownerOf(asksArray[index]) != address(0), "Zero address");
             asks[keccak256(abi.encodePacked(tokenA, asksArray[index]))].push(msg.sender);
         }
     }
