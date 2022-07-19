@@ -21,7 +21,8 @@ contract NftSwap {
     // abi.encode(nft1, nft2) -> [address]
     mapping (bytes32 => address[]) public asks;
 
-    uint256 public dd;
+
+    mapping (uint256 => bool) public isAvailable;
 
     function depositRequestForExchange(uint256 tokenA, uint256[] memory asksArray) public {
         require(ERC721(collectionAddress).ownerOf(tokenA) == msg.sender, "Not owner ser");
@@ -42,15 +43,21 @@ contract NftSwap {
             uint256 tokenB = asksArray[i];
             
             bytes32 encodedIds = keccak256(abi.encodePacked(tokenB, tokenA));
+            // lazy update of the isAvailable mapping
             if(asks[encodedIds].length > 0) {
-
-                dd = 1;
-                _exchangeNfts(asks[encodedIds][0], msg.sender, tokenA, tokenB);
-                address[] memory emptyArray;
-                asks[encodedIds] = emptyArray;
-                return ;
+                if(isAvailable[tokenB] == false) {
+                    address[] memory emptyArray;
+                    asks[encodedIds] = emptyArray;
+                } else {
+                    _exchangeNfts(asks[encodedIds][0], msg.sender, tokenA, tokenB);
+                    address[] memory emptyArray;
+                    asks[encodedIds] = emptyArray;
+                    return ;
+                }
+               
             }
         }
+        isAvailable[tokenA] = true;
         for(uint256 index=0; index<asksArray.length; index++) {
             require(ERC721(collectionAddress).ownerOf(asksArray[index]) != address(0), "Zero address");
             asks[keccak256(abi.encodePacked(tokenA, asksArray[index]))].push(msg.sender);
@@ -58,6 +65,8 @@ contract NftSwap {
     }
 
     function _exchangeNfts(address bob, address mary, uint256 tokenA, uint256 tokenB) private {
+        isAvailable[tokenA] = false;
+        isAvailable[tokenB] = false;
         ERC721(collectionAddress).transferFrom(address(this), bob, tokenA);
         ERC721(collectionAddress).transferFrom(address(this), mary, tokenB);
     }
