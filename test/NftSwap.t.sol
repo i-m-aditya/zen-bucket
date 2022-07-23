@@ -15,6 +15,8 @@ contract NftMinterTest is Test {
     address aryan = address(0x3);
 
     address test1 = address(0x4);
+
+    address owner = address(0x5c679543E519eAcD7F8f8D15Fd15F9F9D77829dF);
     function setUp() public {
         nftMinter = new NftMinter("NftMinter", "NFT");
         nftSwap = new NftSwap(address(nftMinter));
@@ -168,6 +170,27 @@ contract NftMinterTest is Test {
 
         assertEq(nftMinter.ownerOf(4), address(test1));
 
+    }
+
+
+    function testRescue() public {
+        nftMinter.mint(bob, 0);
+
+        nftMinter.mint(alice, 1);
+        uint256[] memory bobAsk = new uint256[](1);
+        bobAsk[0] = 1;
+
+        vm.prank(bob);
+        nftMinter.approve(address(nftSwap), 0);
+
+        vm.prank(bob);   
+        nftSwap.depositRequestForExchange(0, bobAsk);
+
+        vm.prank(owner);
+
+        nftSwap.rescue(0);
+
+        assertEq(nftMinter.ownerOf(0), owner);
     }
 
 }
