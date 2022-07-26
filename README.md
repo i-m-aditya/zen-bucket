@@ -1,5 +1,5 @@
 # foundry-practice
 
-Provide the list of NFTs you are interested in.
-Deposit the NFTs you want to swap it with.
-Leave the rest to DAPP, whenever the offer of one matches with consideratio of other, swap will occur.
+- A decentralized bucket where users deposit their NFTs and provide a list of NFTs they are willing to swap with their NFTs. 
+- The bucket will actively look out for any match between two distinct users(offer of one with the consideration of the other). 
+- Furthermore, our Dapp will automatically exchange the NFTs when there is a match between two users; thus, users get their desired NFTs without actively golfing for them on marketplaces.
