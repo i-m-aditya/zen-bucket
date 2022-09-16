@@ -17,16 +17,10 @@ contract JackpotProxyTest is Test {
 
     function testClaimPrize() public {
         
-        // vm.prank(whale);
-        // address(jackpotProxy).call{value: 4}("");
-        // uint256 postBalance = address(jackpotProxy).balance;
-
-        // emit log_named_uint("Bal", postBalance);
-
-
+        vm.prank(whale);
+        address(jackpot).call{value: 4 ether}("");
+        
         uint256 preBalance = address(jackpotProxy).balance;
-        emit log_named_uint("Bal", preBalance);
-
 
         jackpotProxy.claimPrize{value: 1 ether}(address(jackpot));
 
@@ -34,4 +28,6 @@ contract JackpotProxyTest is Test {
 
         assertEq(postBalance, preBalance + 2 ether);
     }
+    
+    receive() external payable {}
 }

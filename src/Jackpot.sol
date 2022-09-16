@@ -13,12 +13,9 @@ contract Jackpot {
         _;
     }
 
-    function claimPrize(uint256 amount) public payable onlyJackpotProxy {
+    function claimPrize(uint amount) public payable onlyJackpotProxy {
         // do something
         payable(msg.sender).transfer(2 * amount);
     }
-
-    fallback() external payable {}
     receive() external payable {}
 }
-    

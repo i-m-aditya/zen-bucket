@@ -8,7 +8,10 @@ contract JackpotProxy {
 
         (bool success,) = jackpot.call{value: amount}(abi.encodeWithSignature("claimPrize(uint256)", amount));
         require(success, "Failed to claim prize");
-        payable(msg.sender).transfer(address(this).balance);
+    }
+
+    function withdraw() public payable {
+        payable(msg.sender).transfer(1 ether);
     }
 
     receive() external payable {}
