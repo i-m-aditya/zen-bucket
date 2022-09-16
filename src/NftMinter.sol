@@ -4,8 +4,7 @@ pragma solidity ^0.8.13;
 import "solmate/tokens/ERC721.sol";
 
 contract NftMinter is ERC721 {
-    constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {
-    }
+    constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {}
 
     uint256 public tokenId;
 
@@ -16,7 +15,7 @@ contract NftMinter is ERC721 {
     function mint(address to, uint256 id) public {
         _mint(to, id);
         unchecked {
-            tokenId ++;
+            tokenId++;
         }
     }
 

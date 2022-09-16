@@ -10,7 +10,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 make: *** No rule to make target `all'.  Stop.
 
 
-# Make data base, printed on Sat Jul 23 18:39:29 2022
+# Make data base, printed on Fri Sep 16 15:58:08 2022
 
 # Variables
 
@@ -43,16 +43,16 @@ INFOPATH = /opt/homebrew/share/info:
 # environment
 VSCODE_CWD = /Users/aditya/kachra/foundry-example
 # environment
-PATH = /Users/aditya/Downloads/google-cloud-sdk/bin:/usr/local/opt/openssl@1.0/bin:/Users/aditya/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/Users/aditya/.local/share/solana/install/active_release/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/aditya/.cargo/bin:/Users/aditya/.foundry/bin
+ 
+PATH = /Users/aditya/Downloads/google-cloud-sdk/bin:/usr/local/opt/openssl@1.0/bin:/Users/aditya/.local/share/solana/install/active_release/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/aditya/.cargo/bin:/Users/aditya/.foundry/bin
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
- 
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.uVLldgtwbI/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.VK6HNNiDMY/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -72,11 +72,11 @@ HOME = /Users/aditya
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/aditya/Library/Application Support/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /Users/aditya/Library/Application Support/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
 # environment
 LOGNAME = aditya
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 ZSH = /Users/aditya/.oh-my-zsh
 # environment
@@ -104,7 +104,7 @@ USER = aditya
 # default
 MAKECMDGOALS := all
 # environment
-TERM_SESSION_ID = w0t2p0:E17DEE85-17BA-4FE7-967C-5647DB9505D9
+TERM_SESSION_ID = w0t0p2:525DDE07-8683-4709-976F-A03D6F368E27
 # environment
 LESS = -R
 # automatic
@@ -120,7 +120,7 @@ TMPDIR = /var/folders/6g/k3k8n6ss7nz902bgbck5q3nw0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/aditya/Library/Application Support/Code/1.69.2-main.sock
+VSCODE_IPC_HOOK = /Users/aditya/Library/Application Support/Code/1.71.0-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -132,7 +132,7 @@ MFLAGS = -Rrqp
 # environment
 TERM_PROGRAM_VERSION = 3.4.16
 # environment
-XPC_SERVICE_NAME = application.com.microsoft.VSCode.38927190.38927196.3B7C8D13-7C5E-44BC-B7C4-352C6B734B22
+XPC_SERVICE_NAME = application.com.microsoft.VSCode.44177249.44177255.CCA981A0-017E-474D-804C-F7B2FC6FA13E
 # environment
 LC_TERMINAL_VERSION = 3.4.16
 # environment
@@ -142,7 +142,7 @@ HOMEBREW_PREFIX = /opt/homebrew
 # automatic
 +F = $(notdir $+)
 # environment
-ITERM_SESSION_ID = w0t2p0:E17DEE85-17BA-4FE7-967C-5647DB9505D9
+ITERM_SESSION_ID = w0t0p2:525DDE07-8683-4709-976F-A03D6F368E27
 # environment
 HOMEBREW_REPOSITORY = /opt/homebrew
 # environment
@@ -174,7 +174,7 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 2433
+VSCODE_PID = 17531
 # variable set hash-table stats:
 # Load=80/1024=8%, Rehash=0, Collisions=4/101=4%
 
@@ -184,9 +184,9 @@ VSCODE_PID = 2433
 
 # Directories
 
-# . (device 16777230, inode 37923012): 17 files, no impossibilities.
+# . (device 16777232, inode 37923012): 15 files, no impossibilities.
 
-# 17 files, no impossibilities in 1 directories.
+# 15 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -230,7 +230,6 @@ makefile:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
- 
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -259,6 +258,6 @@ GNUmakefile:
 # strcache size: total = 0 / max = 0 / min = 4096 / avg = 0
 # strcache free: total = 0 / max = 0 / min = 4096 / avg = 0
 
-# Finished Make data base on Sat Jul 23 18:39:29 2022
+# Finished Make data base on Fri Sep 16 15:58:08 2022
 
  

@@ -12,5 +12,4 @@ contract ContractScript is Script {
         new NftSwap(0xA5Bb401E53A3DE5445102dFEe26Ae2a1d2669d23);
         vm.stopBroadcast();
     }
-
 }
